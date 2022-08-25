@@ -1,16 +1,16 @@
-# meteor-oxide
+# meteor-oxidedb
 
 This is a docker compose test that runs the meteor-blaze-tutorial app using Oxide and PostgreSQL instead of MongoDB.
 
-## What is Oxide?
+## What is OxideDB?
 
 [OxideDB](https://github.com/fcoury/oxide) is a translation layer that works as a MongoDB database server while using PostgreSQL's JSON capabilities as the underlying data store. Teach your PostgreSQL database how to speak MongoDB Wire Protocol!
 
 ### Getting started
 
 ```bash
-git clone https://github.com/wreiske/meteor-oxide.git
-cd meteor-oxide
+git clone https://github.com/wreiske/meteor-oxidedb.git
+cd meteor-oxidedb
 docker-compose up -d --no-deps --build app
 docker-compose up
 ```
