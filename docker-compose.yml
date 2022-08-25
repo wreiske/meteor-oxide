@@ -9,7 +9,7 @@ services:
     stdin_open: true
     environment:
       ROOT_URL: ${APP_ROOT_URL:-http://localhost}
-      MONGO_URL: mongodb://ferretdb:27017/meteor
+      MONGO_URL: mongodb://oxide:27017/meteor
       PORT: 3000
   nginx:
     image: nginx
@@ -19,6 +19,8 @@ services:
       - 8888:8888
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
   postgres:
     image: postgres:14.0
     hostname: 'postgres'
@@ -28,18 +30,22 @@ services:
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_DB=meteor
-  ferretdb:
-    image: ghcr.io/ferretdb/ferretdb:latest
-    hostname: 'ferretdb'
-    container_name: 'ferretdb'
+  oxide:
+    build: https://github.com/fcoury/oxide.git
+    hostname: 'oxide'
+    container_name: 'oxide'
     restart: 'on-failure'
     command:
       [
-        '-listen-addr=:27017',
-        '-postgresql-url=postgres://postgres@postgres:5432/meteor',
+        '/target/release/oxide',
+        '--web',
+        '--postgres-url=postgres://postgres@postgres:5432/meteor',
       ]
     ports:
       - 27017:27017
+      - 8087:8087
+    depends_on:
+      - 'postgres'
   setup:
     image: postgres:14.0
     hostname: 'setup'
