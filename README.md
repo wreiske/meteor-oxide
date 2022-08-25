@@ -1,18 +1,16 @@
-# meteor-ferretdb
+# meteor-oxide
 
-This is a docker compose test that runs the meteor-blaze-tutorial app using FerretDB and PostgreSQL instead of MongoDB.
+This is a docker compose test that runs the meteor-blaze-tutorial app using Oxide and PostgreSQL instead of MongoDB.
 
-https://user-images.githubusercontent.com/6295044/185584542-e8b5cc73-53be-438c-ae37-6b397890ac64.mp4
+## What is Oxide?
 
-## What is FerretDB?
-
-[FerretDB](https://www.ferretdb.io/) is a stateless proxy, which converts MongoDB protocol queries to SQL, and uses PostgreSQL as a database engine. This will be compatible with MongoDB drivers, and should work as a drop-in replacement to MongoDB in many cases.
+[Oxide](https://github.com/fcoury/oxide) is a stateless proxy, which converts MongoDB protocol queries to SQL, and uses PostgreSQL as a database engine. This will be compatible with MongoDB drivers, and should work as a drop-in replacement to MongoDB in many cases. Teach your PostgreSQL database how to speak MongoDB Wire Protocol!
 
 ### Getting started
 
 ```bash
-git clone https://github.com/wreiske/meteor-ferretdb.git
-cd meteor-ferretdb
+git clone https://github.com/wreiske/meteor-oxide.git
+cd meteor-oxide
 docker-compose up -d --no-deps --build app
 docker-compose up
 ```
