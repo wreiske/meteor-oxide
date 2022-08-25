@@ -4,7 +4,7 @@ This is a docker compose test that runs the meteor-blaze-tutorial app using Oxid
 
 ## What is Oxide?
 
-[Oxide](https://github.com/fcoury/oxide) OxideDB is a translation layer that works as a MongoDB database server while using PostgreSQL's JSON capabilities as the underlying data store. Teach your PostgreSQL database how to speak MongoDB Wire Protocol!
+[OxideDB](https://github.com/fcoury/oxide) is a translation layer that works as a MongoDB database server while using PostgreSQL's JSON capabilities as the underlying data store. Teach your PostgreSQL database how to speak MongoDB Wire Protocol!
 
 ### Getting started
 
